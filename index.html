@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Generator</title>
+    <link rel="stylesheet" href="mdb/css/bootstrap.min.css"> <!-- Bootstrap -->
+    <link rel="stylesheet" href="mdb/css/mdb.min.css">       <!-- MDBootstrap -->
+    <link rel="stylesheet" href="mdb/css/style.css">         <!-- Custom style -->
+</head>
+<body>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 z-depth-1 rounded">
+                <div class="text-center mt-3 mb-3">Table Generator</div>
+                <form id="getSizeForm">
+                    <input type="number" id="rows" name="rows" class="form-control rounded mb-3" min="1" placeholder="No. Of Rows" required />
+                    <input type="number" id="columns" name="columns" class="form-control rounded mb-3" min="1" placeholder="No. Of Colums" required />
+                    <div id="sizeResp" class="text-center mb-3"></div>
+                    <button type="submit" name="sub" id="sub" class="btn btn-sm btn-dark rounded m-0 mb-3">Create Table</button>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <div id="tableHeading" class="text-center mb-4" style="display: none;">Table Generated</div>
+                <div class="table-responsive text-center">
+                    <table id="tableGen" class="table table-sm table-bordered"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Info</h4>
+                    <button type="button" id="modalClose" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="insertInfoForm">
+                    <div class="modal-body">
+                        <input type="number" id="rowColumnValue" name="rowColumnValue" hidden/>
+                        <input type="text" id="name" name="name" class="form-control mb-3" placeholder="Name" required />
+                        <input type="number" id="mobileNumber" name="mobileNumber" class="form-control mb-3" placeholder="Mobile Number" required />
+                        <input type="text" id="city" name="city" class="form-control mb-3" placeholder="City" required />
+                        <div id="modalResp" class="text-center"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="modalSubmit" class="btn btn-dark btn-sm">Proceed</button>
+                        <button type="reset" id="modalReset" hidden></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="mdb/jquery.min.js"></script>
+    <script src="mdb/bootstrap.min.js"></script>
+    <script src="mdb/js/mdb.min.js"></script>
+    <script src="mdb/js/popper.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
