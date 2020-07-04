@@ -49,8 +49,14 @@ const tableExists = () => {
                     $("#tableGen").append(td);       
                 $("#tableGen").append("</tr>");
             });
+            document.getElementById("clearTable").style.display = "";
         } else if(res.status === 500) {
             alert("Problem Occured! Please Try Again Later");
+        } else if(res.status === 404) {
+            document.getElementById("tableGen").innerText = "";
+            document.getElementById("sub").style.display = "";
+            document.getElementById("clearTable").style.display = "none";
+            document.getElementById("tableHeading").style.display = "none";
         }
     });
 }
@@ -139,4 +145,23 @@ document.getElementById("insertInfoForm").addEventListener("submit", (event) => 
         }
     });
 
+});
+
+document.getElementById("clearTable").addEventListener("click", () => {
+    if(confirm("Are You Sure To Delete?")) {
+        $.ajax({
+            url: "php/deleteTable.php",
+            type: "post",
+            dataType: "json",
+            error: (err) => {
+                alert("Problem Occured! Please Try Again Later");
+            }
+        }).done((res) => {
+            if(res.status === 200) {
+                tableExists();
+            } else {
+                alert("Problem Occured! Please Try Again Later");
+            }
+        });
+    }
 });

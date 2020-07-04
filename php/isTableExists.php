@@ -11,8 +11,6 @@
             $query1 = "select * from temp_table";
             $res1 = mysqli_query($con, $query1);
     
-            mysqli_close($con);
-    
             if($res1){
                 $rows = array();
                 while($row = mysqli_fetch_row($res1)) {
@@ -25,13 +23,13 @@
             }
     
         } else {
-            mysqli_close($con);
             echo json_encode(["status" => 404, "message" => "No Tables Present"]);
         }   
 
     } else {
-        mysqli_close($con);
         echo json_encode(["status" => 500, "message" => "DB Error"]);
     }
+
+    mysqli_close($con);
 
 ?>

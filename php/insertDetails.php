@@ -15,4 +15,6 @@
         echo json_encode(["status" => 500, "message" => "Not Inserted", "error" => mysqli_error($con)]);
     }
 
+    mysqli_close($con);
+
 ?>

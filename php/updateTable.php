@@ -9,11 +9,11 @@
     $res = mysqli_query($con, $query);
 
     if($res) {
-        mysqli_close($con);
         echo json_encode(["status" => 200, "message" => "Updated"]);
     } else {
-        mysqli_close($con);
         echo json_encode(["status" => 500, "message" => "Not Updated"]);
     }
+
+    mysqli_close($con);
     
 ?>
